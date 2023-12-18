@@ -31,3 +31,8 @@ To authenticate requests, include an Authorization header with the value "Bearer
 ```sh
 email: test@example.com, password: password
 ```
+Testing
+
+```sh
+./vendor/bin/sail test
+```
