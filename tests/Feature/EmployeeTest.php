@@ -35,6 +35,7 @@ class EmployeeTest extends TestCase
 
     public function test_employee_can_be_shown(): void
     {
+        $this->actingAsUser();
         $employee = Employee::factory()->create();
 
         $response = $this->getJson(action([EmployeeController::class, 'show'], $employee));
@@ -53,6 +54,7 @@ class EmployeeTest extends TestCase
 
     public function test_employee_can_be_created(): void
     {
+        $this->actingAsUser();
         $employeeNew = Employee::factory()->make()->toArray();
         $employeeNew['employee_address'] = EmployeeAddress::factory()->make()->toArray();
 
@@ -65,6 +67,7 @@ class EmployeeTest extends TestCase
 
     public function test_employee_can_be_updated(): void
     {
+        $this->actingAsUser();
         $employee = Employee::factory()->create();
         $employeeNew = Employee::factory()->make()->toArray();
         $employeeNew['employee_address'] = EmployeeAddress::factory()->make()->toArray();
@@ -78,6 +81,7 @@ class EmployeeTest extends TestCase
 
     public function test_employee_can_be_deleted(): void
     {
+        $this->actingAsUser();
         $employee = Employee::factory()->create();
 
         $response = $this->deleteJson(action([EmployeeController::class, 'destroy'], $employee));
@@ -85,5 +89,20 @@ class EmployeeTest extends TestCase
         $response->assertNoContent();
         $this->assertDatabaseMissing(Employee::class, ['full_name' => $employee->full_name]);
         $this->assertDatabaseMissing(EmployeeAddress::class, ['employee_id' => $employee->id]);
+    }
+
+    public function test_employees_can_be_bulk_deleted(): void
+    {
+        $this->actingAsUser();
+        $employees = Employee::factory()->count(10)->create();
+
+        $response = $this->deleteJson(action(
+            [EmployeeController::class, 'bulkDestroy'],
+            ['employee_ids' => $employees->pluck('id')->toArray()]
+        ));
+
+        $response->assertNoContent();
+        $this->assertDatabaseEmpty(Employee::class);
+        $this->assertDatabaseEmpty(EmployeeAddress::class);
     }
 }

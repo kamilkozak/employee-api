@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('correspondence_building_number');
             $table->string('correspondence_apartment_number')->nullable();
             $table->timestamps();
+
+            $table->unique('employee_id');
         });
     }
 

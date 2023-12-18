@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BulkDestroyEmployeeRequest;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\UpdateEmployeeRequest;
 use App\Http\Resources\EmployeeResource;
@@ -91,6 +92,26 @@ class EmployeeController extends Controller
         try {
             $employee->delete();
             $employee->employeeAddress()->delete();
+
+            DB::commit();
+        } catch (\Throwable $e) {
+            DB::rollback();
+            throw new UnprocessableEntityHttpException($e->getMessage());
+        }
+
+        return response()->json(status: Response::HTTP_NO_CONTENT);
+    }
+
+    public function bulkDestroy(BulkDestroyEmployeeRequest $request): JsonResponse
+    {
+        DB::beginTransaction();
+
+        try {
+            foreach ($request->validated('employee_ids') as $id) {
+                $employee = Employee::find($id);
+                $employee->delete();
+                $employee->employeeAddress()->delete();
+            }
 
             DB::commit();
         } catch (\Throwable $e) {

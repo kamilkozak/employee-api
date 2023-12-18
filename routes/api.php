@@ -31,10 +31,13 @@ Route::prefix('v1')->group(function () {
     Route::name('api.v1.')->group(function () {
 
         Route::get('employees', [EmployeeController::class, 'index'])->name('employees.index');
-        Route::post('employees', [EmployeeController::class, 'store'])->name('employees.store');
-        Route::get('employees/{employee}', [EmployeeController::class, 'show'])->name('employee.show');
-        Route::put('employees/{employee}', [EmployeeController::class, 'update'])->name('employee.update');
-        Route::delete('employees/{employee}', [EmployeeController::class, 'destroy'])->name('employees.destroy');
 
+        Route::middleware('auth:sanctum')->group(function () {
+            Route::post('employees', [EmployeeController::class, 'store'])->name('employees.store');
+            Route::get('employees/{employee}', [EmployeeController::class, 'show'])->name('employee.show');
+            Route::put('employees/{employee}', [EmployeeController::class, 'update'])->name('employee.update');
+            Route::delete('employees/{employee}', [EmployeeController::class, 'destroy'])->name('employees.destroy');
+            Route::delete('employees', [EmployeeController::class, 'bulkDestroy'])->name('employees.bulk-destroy');
+        });
     });
 });
