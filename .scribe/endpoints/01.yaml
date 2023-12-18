@@ -33,7 +33,7 @@ endpoints:
         name: 'filter[full_name]'
         description: ''
         required: false
-        example: sint
+        example: provident
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -42,7 +42,7 @@ endpoints:
         name: 'filter[email]'
         description: ''
         required: false
-        example: adipisci
+        example: asperiores
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -51,7 +51,16 @@ endpoints:
         name: 'filter[position]'
         description: ''
         required: false
-        example: mollitia
+        example: ad
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'filter[employee_addresses.residence_country]':
+        name: 'filter[employee_addresses.residence_country]'
+        description: ''
+        required: false
+        example: exercitationem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -60,7 +69,7 @@ endpoints:
         name: sort
         description: ''
         required: false
-        example: qui
+        example: nulla
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -69,35 +78,35 @@ endpoints:
         name: 'page[number]'
         description: ''
         required: false
-        example: 15
+        example: 1
         type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         custom: []
       'page[size]':
         name: 'page[size]'
         description: ''
         required: false
-        example: 20
+        example: 5
         type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         custom: []
     cleanQueryParameters:
       include: employeeAddress
-      'filter[full_name]': sint
-      'filter[email]': adipisci
-      'filter[position]': mollitia
-      sort: qui
-      'page[number]': 15
-      'page[size]': 20
+      'filter[full_name]': provident
+      'filter[email]': asperiores
+      'filter[position]': ad
+      sort: nulla
+      'page[number]': 1
+      'page[size]': 5
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"data":[{"id":99,"full_name":"Marielle Kuhic","email":"royal93@example.net","phone_number":"(660) 510-1313","average_salary_last_year":"41.77","position":"tester","created_at":"2023-12-18T19:29:30.000000Z","updated_at":"2023-12-18T19:29:30.000000Z"},{"id":100,"full_name":"Heidi Hermiston","email":"sporer.ahmed@example.com","phone_number":"+1 (930) 347-9985","average_salary_last_year":"0.89","position":"pm","created_at":"2023-12-18T19:29:30.000000Z","updated_at":"2023-12-18T19:29:30.000000Z"}]}'
+        content: '{"data":[{"id":109,"full_name":"Brendan Jacobson DDS","email":"abalistreri@example.com","phone_number":"+1 (774) 246-7544","average_salary_last_year":"63.02","position":"front-end","created_at":"2023-12-18T19:41:28.000000Z","updated_at":"2023-12-18T19:41:28.000000Z"},{"id":110,"full_name":"Elmer King","email":"ddonnelly@example.org","phone_number":"317-490-4189","average_salary_last_year":"0.08","position":"front-end","created_at":"2023-12-18T19:41:28.000000Z","updated_at":"2023-12-18T19:41:28.000000Z"}]}'
         headers: []
         description: ''
         custom: []
@@ -133,7 +142,7 @@ endpoints:
         name: full_name
         description: ''
         required: true
-        example: illum
+        example: vel
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -142,7 +151,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 254 characters.'
         required: true
-        example: wisoky.brigitte@example.net
+        example: goyette.lillie@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -151,7 +160,7 @@ endpoints:
         name: phone_number
         description: ''
         required: false
-        example: placeat
+        example: impedit
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -160,7 +169,7 @@ endpoints:
         name: average_salary_last_year
         description: ''
         required: false
-        example: 14
+        example: 13
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -169,7 +178,7 @@ endpoints:
         name: position
         description: ''
         required: true
-        example: pm
+        example: tester
         type: string
         enumValues:
           - front-end
@@ -192,7 +201,7 @@ endpoints:
         name: employee_address.residence_country
         description: ''
         required: true
-        example: quasi
+        example: id
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -201,7 +210,7 @@ endpoints:
         name: employee_address.residence_zip_code
         description: ''
         required: true
-        example: veniam
+        example: non
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -210,7 +219,7 @@ endpoints:
         name: employee_address.residence_city
         description: ''
         required: true
-        example: laudantium
+        example: quo
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -219,7 +228,7 @@ endpoints:
         name: employee_address.residence_street
         description: ''
         required: true
-        example: et
+        example: veritatis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -228,7 +237,7 @@ endpoints:
         name: employee_address.residence_building_number
         description: ''
         required: true
-        example: occaecati
+        example: atque
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -246,7 +255,7 @@ endpoints:
         name: employee_address.different_correspondence_address
         description: ''
         required: true
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -255,7 +264,7 @@ endpoints:
         name: employee_address.correspondence_country
         description: ''
         required: false
-        example: harum
+        example: repellendus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -273,7 +282,7 @@ endpoints:
         name: employee_address.correspondence_city
         description: ''
         required: false
-        example: et
+        example: qui
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -282,7 +291,7 @@ endpoints:
         name: employee_address.correspondence_street
         description: ''
         required: false
-        example: iure
+        example: reprehenderit
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -306,26 +315,26 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      full_name: illum
-      email: wisoky.brigitte@example.net
-      phone_number: placeat
-      average_salary_last_year: 14
-      position: pm
+      full_name: vel
+      email: goyette.lillie@example.org
+      phone_number: impedit
+      average_salary_last_year: 13
+      position: tester
       employee_address:
-        residence_country: quasi
-        residence_zip_code: veniam
-        residence_city: laudantium
-        residence_street: et
-        residence_building_number: occaecati
-        different_correspondence_address: false
-        correspondence_country: harum
-        correspondence_city: et
-        correspondence_street: iure
+        residence_country: id
+        residence_zip_code: non
+        residence_city: quo
+        residence_street: veritatis
+        residence_building_number: atque
+        different_correspondence_address: true
+        correspondence_country: repellendus
+        correspondence_city: qui
+        correspondence_street: reprehenderit
     fileParameters: []
     responses:
       -
         status: 201
-        content: '{"data":{"id":101,"full_name":"Prof. Natalie Doyle II","email":"kathryne.bernier@example.net","phone_number":"(781) 547-4750","average_salary_last_year":"22.51","position":"front-end","created_at":"2023-12-18T19:29:30.000000Z","updated_at":"2023-12-18T19:29:30.000000Z"}}'
+        content: '{"data":{"id":111,"full_name":"Ladarius Zemlak","email":"hodkiewicz.jayne@example.com","phone_number":"+1.934.368.1640","average_salary_last_year":"7.68","position":"pm","created_at":"2023-12-18T19:41:28.000000Z","updated_at":"2023-12-18T19:41:28.000000Z"}}'
         headers: []
         description: ''
         custom: []
@@ -333,7 +342,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer abe8156a6hDZdkVcgv4PE3f'
+      - 'Bearer P46h1ckfbgVvadeD8Ea5Z63'
     controller: null
     method: null
     route: null
@@ -375,7 +384,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":102,"full_name":"Amelie Borer Sr.","email":"abbott.elenor@example.net","phone_number":"(740) 986-4248","average_salary_last_year":"0.97","position":"tester","created_at":"2023-12-18T19:29:30.000000Z","updated_at":"2023-12-18T19:29:30.000000Z"}}'
+        content: '{"data":{"id":112,"full_name":"Wendy Eichmann","email":"kaci83@example.com","phone_number":"907.584.0688","average_salary_last_year":"3484495.99","position":"pm","created_at":"2023-12-18T19:41:28.000000Z","updated_at":"2023-12-18T19:41:28.000000Z"}}'
         headers: []
         description: ''
         custom: []
@@ -383,7 +392,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 83E45cDeabVdkav61ZfgP6h'
+      - 'Bearer ZfdDceEg3h6Pbk85Vv41aa6'
     controller: null
     method: null
     route: null
@@ -424,7 +433,7 @@ endpoints:
         name: full_name
         description: ''
         required: true
-        example: eius
+        example: voluptatem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -433,7 +442,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 254 characters.'
         required: true
-        example: hazle.hand@example.org
+        example: mitchell.damien@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -442,7 +451,7 @@ endpoints:
         name: phone_number
         description: ''
         required: false
-        example: commodi
+        example: possimus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -451,7 +460,7 @@ endpoints:
         name: average_salary_last_year
         description: ''
         required: false
-        example: 15
+        example: 4
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -460,7 +469,7 @@ endpoints:
         name: position
         description: ''
         required: true
-        example: front-end
+        example: tester
         type: string
         enumValues:
           - front-end
@@ -483,7 +492,7 @@ endpoints:
         name: employee_address.residence_country
         description: ''
         required: true
-        example: quidem
+        example: molestiae
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -492,7 +501,7 @@ endpoints:
         name: employee_address.residence_zip_code
         description: ''
         required: true
-        example: illo
+        example: sequi
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -501,7 +510,7 @@ endpoints:
         name: employee_address.residence_city
         description: ''
         required: true
-        example: nesciunt
+        example: sequi
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -510,7 +519,7 @@ endpoints:
         name: employee_address.residence_street
         description: ''
         required: true
-        example: cum
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -519,7 +528,7 @@ endpoints:
         name: employee_address.residence_building_number
         description: ''
         required: true
-        example: cum
+        example: consequuntur
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -537,7 +546,7 @@ endpoints:
         name: employee_address.different_correspondence_address
         description: ''
         required: true
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -546,7 +555,7 @@ endpoints:
         name: employee_address.correspondence_country
         description: ''
         required: false
-        example: adipisci
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -564,7 +573,7 @@ endpoints:
         name: employee_address.correspondence_city
         description: ''
         required: false
-        example: quo
+        example: tenetur
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -573,7 +582,7 @@ endpoints:
         name: employee_address.correspondence_street
         description: ''
         required: false
-        example: amet
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -597,26 +606,26 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      full_name: eius
-      email: hazle.hand@example.org
-      phone_number: commodi
-      average_salary_last_year: 15
-      position: front-end
+      full_name: voluptatem
+      email: mitchell.damien@example.net
+      phone_number: possimus
+      average_salary_last_year: 4
+      position: tester
       employee_address:
-        residence_country: quidem
-        residence_zip_code: illo
-        residence_city: nesciunt
-        residence_street: cum
-        residence_building_number: cum
-        different_correspondence_address: true
-        correspondence_country: adipisci
-        correspondence_city: quo
-        correspondence_street: amet
+        residence_country: molestiae
+        residence_zip_code: sequi
+        residence_city: sequi
+        residence_street: et
+        residence_building_number: consequuntur
+        different_correspondence_address: false
+        correspondence_country: et
+        correspondence_city: tenetur
+        correspondence_street: architecto
     fileParameters: []
     responses:
       -
         status: 202
-        content: '{"data":{"id":103,"full_name":"Micheal Witting","email":"zoey.ruecker@example.com","phone_number":"929.655.8391","average_salary_last_year":"5399312.51","position":"back-end","created_at":"2023-12-18T19:29:30.000000Z","updated_at":"2023-12-18T19:29:30.000000Z"}}'
+        content: '{"data":{"id":113,"full_name":"Freddie Johnston","email":"omcdermott@example.net","phone_number":"478-457-3119","average_salary_last_year":"0.34","position":"tester","created_at":"2023-12-18T19:41:28.000000Z","updated_at":"2023-12-18T19:41:28.000000Z"}}'
         headers: []
         description: ''
         custom: []
@@ -624,7 +633,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer a1P36bd8ehagfv4E6D5ckVZ'
+      - 'Bearer 6Eg5ke1fZav4dVab6P8hDc3'
     controller: null
     method: null
     route: null
@@ -674,7 +683,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer dfvVZ864PD61bcE3ahegk5a'
+      - 'Bearer 5ve18ZEDP6fk34cgaVab6hd'
     controller: null
     method: null
     route: null
@@ -706,14 +715,14 @@ endpoints:
         description: ''
         required: false
         example:
-          - dolores
+          - rerum
         type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
       employee_ids:
-        - dolores
+        - rerum
     fileParameters: []
     responses:
       -
@@ -726,7 +735,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer afev4dc6bVaDh86k5g1ZPE3'
+      - 'Bearer 6ace3D8hbg1kdVPfvE6a54Z'
     controller: null
     method: null
     route: null

@@ -142,62 +142,72 @@ paths:
           in: query
           name: 'filter[full_name]'
           description: ''
-          example: sint
+          example: provident
           required: false
           schema:
             type: string
             description: ''
-            example: sint
+            example: provident
         -
           in: query
           name: 'filter[email]'
           description: ''
-          example: adipisci
+          example: asperiores
           required: false
           schema:
             type: string
             description: ''
-            example: adipisci
+            example: asperiores
         -
           in: query
           name: 'filter[position]'
           description: ''
-          example: mollitia
+          example: ad
           required: false
           schema:
             type: string
             description: ''
-            example: mollitia
+            example: ad
+        -
+          in: query
+          name: 'filter[employee_addresses.residence_country]'
+          description: ''
+          example: exercitationem
+          required: false
+          schema:
+            type: string
+            description: ''
+            example: exercitationem
         -
           in: query
           name: sort
           description: ''
-          example: qui
+          example: nulla
           required: false
           schema:
             type: string
             description: ''
-            example: qui
+            example: nulla
         -
           in: query
           name: 'page[number]'
           description: ''
-          example: 15
+          example: 1
           required: false
           schema:
             type: integer
             description: ''
-            example: 15
+            example: 1
         -
           in: query
           name: 'page[size]'
           description: ''
-          example: 20
+          example: 5
           required: false
           schema:
             type: integer
             description: ''
-            example: 20
+            example: 5
       responses:
         200:
           description: ''
@@ -208,72 +218,72 @@ paths:
                 example:
                   data:
                     -
-                      id: 99
-                      full_name: 'Marielle Kuhic'
-                      email: royal93@example.net
-                      phone_number: '(660) 510-1313'
-                      average_salary_last_year: '41.77'
-                      position: tester
-                      created_at: '2023-12-18T19:29:30.000000Z'
-                      updated_at: '2023-12-18T19:29:30.000000Z'
+                      id: 109
+                      full_name: 'Brendan Jacobson DDS'
+                      email: abalistreri@example.com
+                      phone_number: '+1 (774) 246-7544'
+                      average_salary_last_year: '63.02'
+                      position: front-end
+                      created_at: '2023-12-18T19:41:28.000000Z'
+                      updated_at: '2023-12-18T19:41:28.000000Z'
                     -
-                      id: 100
-                      full_name: 'Heidi Hermiston'
-                      email: sporer.ahmed@example.com
-                      phone_number: '+1 (930) 347-9985'
-                      average_salary_last_year: '0.89'
-                      position: pm
-                      created_at: '2023-12-18T19:29:30.000000Z'
-                      updated_at: '2023-12-18T19:29:30.000000Z'
+                      id: 110
+                      full_name: 'Elmer King'
+                      email: ddonnelly@example.org
+                      phone_number: 317-490-4189
+                      average_salary_last_year: '0.08'
+                      position: front-end
+                      created_at: '2023-12-18T19:41:28.000000Z'
+                      updated_at: '2023-12-18T19:41:28.000000Z'
                 properties:
                   data:
                     type: array
                     example:
                       -
-                        id: 99
-                        full_name: 'Marielle Kuhic'
-                        email: royal93@example.net
-                        phone_number: '(660) 510-1313'
-                        average_salary_last_year: '41.77'
-                        position: tester
-                        created_at: '2023-12-18T19:29:30.000000Z'
-                        updated_at: '2023-12-18T19:29:30.000000Z'
+                        id: 109
+                        full_name: 'Brendan Jacobson DDS'
+                        email: abalistreri@example.com
+                        phone_number: '+1 (774) 246-7544'
+                        average_salary_last_year: '63.02'
+                        position: front-end
+                        created_at: '2023-12-18T19:41:28.000000Z'
+                        updated_at: '2023-12-18T19:41:28.000000Z'
                       -
-                        id: 100
-                        full_name: 'Heidi Hermiston'
-                        email: sporer.ahmed@example.com
-                        phone_number: '+1 (930) 347-9985'
-                        average_salary_last_year: '0.89'
-                        position: pm
-                        created_at: '2023-12-18T19:29:30.000000Z'
-                        updated_at: '2023-12-18T19:29:30.000000Z'
+                        id: 110
+                        full_name: 'Elmer King'
+                        email: ddonnelly@example.org
+                        phone_number: 317-490-4189
+                        average_salary_last_year: '0.08'
+                        position: front-end
+                        created_at: '2023-12-18T19:41:28.000000Z'
+                        updated_at: '2023-12-18T19:41:28.000000Z'
                     items:
                       type: object
                       properties:
                         id:
                           type: integer
-                          example: 99
+                          example: 109
                         full_name:
                           type: string
-                          example: 'Marielle Kuhic'
+                          example: 'Brendan Jacobson DDS'
                         email:
                           type: string
-                          example: royal93@example.net
+                          example: abalistreri@example.com
                         phone_number:
                           type: string
-                          example: '(660) 510-1313'
+                          example: '+1 (774) 246-7544'
                         average_salary_last_year:
                           type: string
-                          example: '41.77'
+                          example: '63.02'
                         position:
                           type: string
-                          example: tester
+                          example: front-end
                         created_at:
                           type: string
-                          example: '2023-12-18T19:29:30.000000Z'
+                          example: '2023-12-18T19:41:28.000000Z'
                         updated_at:
                           type: string
-                          example: '2023-12-18T19:29:30.000000Z'
+                          example: '2023-12-18T19:41:28.000000Z'
       tags:
         - Employee
       security: []
@@ -291,42 +301,42 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 101
-                    full_name: 'Prof. Natalie Doyle II'
-                    email: kathryne.bernier@example.net
-                    phone_number: '(781) 547-4750'
-                    average_salary_last_year: '22.51'
-                    position: front-end
-                    created_at: '2023-12-18T19:29:30.000000Z'
-                    updated_at: '2023-12-18T19:29:30.000000Z'
+                    id: 111
+                    full_name: 'Ladarius Zemlak'
+                    email: hodkiewicz.jayne@example.com
+                    phone_number: +1.934.368.1640
+                    average_salary_last_year: '7.68'
+                    position: pm
+                    created_at: '2023-12-18T19:41:28.000000Z'
+                    updated_at: '2023-12-18T19:41:28.000000Z'
                 properties:
                   data:
                     type: object
                     properties:
                       id:
                         type: integer
-                        example: 101
+                        example: 111
                       full_name:
                         type: string
-                        example: 'Prof. Natalie Doyle II'
+                        example: 'Ladarius Zemlak'
                       email:
                         type: string
-                        example: kathryne.bernier@example.net
+                        example: hodkiewicz.jayne@example.com
                       phone_number:
                         type: string
-                        example: '(781) 547-4750'
+                        example: +1.934.368.1640
                       average_salary_last_year:
                         type: string
-                        example: '22.51'
+                        example: '7.68'
                       position:
                         type: string
-                        example: front-end
+                        example: pm
                       created_at:
                         type: string
-                        example: '2023-12-18T19:29:30.000000Z'
+                        example: '2023-12-18T19:41:28.000000Z'
                       updated_at:
                         type: string
-                        example: '2023-12-18T19:29:30.000000Z'
+                        example: '2023-12-18T19:41:28.000000Z'
       tags:
         - Employee
       requestBody:
@@ -339,23 +349,23 @@ paths:
                 full_name:
                   type: string
                   description: ''
-                  example: illum
+                  example: vel
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 254 characters.'
-                  example: wisoky.brigitte@example.net
+                  example: goyette.lillie@example.org
                 phone_number:
                   type: string
                   description: ''
-                  example: placeat
+                  example: impedit
                 average_salary_last_year:
                   type: integer
                   description: ''
-                  example: 14
+                  example: 13
                 position:
                   type: string
                   description: ''
-                  example: pm
+                  example: tester
                   enum:
                     - front-end
                     - back-end
@@ -370,23 +380,23 @@ paths:
                     residence_country:
                       type: string
                       description: ''
-                      example: quasi
+                      example: id
                     residence_zip_code:
                       type: string
                       description: ''
-                      example: veniam
+                      example: non
                     residence_city:
                       type: string
                       description: ''
-                      example: laudantium
+                      example: quo
                     residence_street:
                       type: string
                       description: ''
-                      example: et
+                      example: veritatis
                     residence_building_number:
                       type: string
                       description: ''
-                      example: occaecati
+                      example: atque
                     residence_apartment_number:
                       type: string
                       description: ''
@@ -394,11 +404,11 @@ paths:
                     different_correspondence_address:
                       type: boolean
                       description: ''
-                      example: false
+                      example: true
                     correspondence_country:
                       type: string
                       description: ''
-                      example: harum
+                      example: repellendus
                     correspondence_zip_code:
                       type: string
                       description: ''
@@ -406,11 +416,11 @@ paths:
                     correspondence_city:
                       type: string
                       description: ''
-                      example: et
+                      example: qui
                     correspondence_street:
                       type: string
                       description: ''
-                      example: iure
+                      example: reprehenderit
                     correspondence_building_number:
                       type: string
                       description: ''
@@ -445,7 +455,7 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - dolores
+                    - rerum
                   items:
                     type: string
   '/api/v1/employees/{employee_id}':
@@ -463,42 +473,42 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 102
-                    full_name: 'Amelie Borer Sr.'
-                    email: abbott.elenor@example.net
-                    phone_number: '(740) 986-4248'
-                    average_salary_last_year: '0.97'
-                    position: tester
-                    created_at: '2023-12-18T19:29:30.000000Z'
-                    updated_at: '2023-12-18T19:29:30.000000Z'
+                    id: 112
+                    full_name: 'Wendy Eichmann'
+                    email: kaci83@example.com
+                    phone_number: 907.584.0688
+                    average_salary_last_year: '3484495.99'
+                    position: pm
+                    created_at: '2023-12-18T19:41:28.000000Z'
+                    updated_at: '2023-12-18T19:41:28.000000Z'
                 properties:
                   data:
                     type: object
                     properties:
                       id:
                         type: integer
-                        example: 102
+                        example: 112
                       full_name:
                         type: string
-                        example: 'Amelie Borer Sr.'
+                        example: 'Wendy Eichmann'
                       email:
                         type: string
-                        example: abbott.elenor@example.net
+                        example: kaci83@example.com
                       phone_number:
                         type: string
-                        example: '(740) 986-4248'
+                        example: 907.584.0688
                       average_salary_last_year:
                         type: string
-                        example: '0.97'
+                        example: '3484495.99'
                       position:
                         type: string
-                        example: tester
+                        example: pm
                       created_at:
                         type: string
-                        example: '2023-12-18T19:29:30.000000Z'
+                        example: '2023-12-18T19:41:28.000000Z'
                       updated_at:
                         type: string
-                        example: '2023-12-18T19:29:30.000000Z'
+                        example: '2023-12-18T19:41:28.000000Z'
       tags:
         - Employee
     put:
@@ -515,42 +525,42 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 103
-                    full_name: 'Micheal Witting'
-                    email: zoey.ruecker@example.com
-                    phone_number: 929.655.8391
-                    average_salary_last_year: '5399312.51'
-                    position: back-end
-                    created_at: '2023-12-18T19:29:30.000000Z'
-                    updated_at: '2023-12-18T19:29:30.000000Z'
+                    id: 113
+                    full_name: 'Freddie Johnston'
+                    email: omcdermott@example.net
+                    phone_number: 478-457-3119
+                    average_salary_last_year: '0.34'
+                    position: tester
+                    created_at: '2023-12-18T19:41:28.000000Z'
+                    updated_at: '2023-12-18T19:41:28.000000Z'
                 properties:
                   data:
                     type: object
                     properties:
                       id:
                         type: integer
-                        example: 103
+                        example: 113
                       full_name:
                         type: string
-                        example: 'Micheal Witting'
+                        example: 'Freddie Johnston'
                       email:
                         type: string
-                        example: zoey.ruecker@example.com
+                        example: omcdermott@example.net
                       phone_number:
                         type: string
-                        example: 929.655.8391
+                        example: 478-457-3119
                       average_salary_last_year:
                         type: string
-                        example: '5399312.51'
+                        example: '0.34'
                       position:
                         type: string
-                        example: back-end
+                        example: tester
                       created_at:
                         type: string
-                        example: '2023-12-18T19:29:30.000000Z'
+                        example: '2023-12-18T19:41:28.000000Z'
                       updated_at:
                         type: string
-                        example: '2023-12-18T19:29:30.000000Z'
+                        example: '2023-12-18T19:41:28.000000Z'
       tags:
         - Employee
       requestBody:
@@ -563,23 +573,23 @@ paths:
                 full_name:
                   type: string
                   description: ''
-                  example: eius
+                  example: voluptatem
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 254 characters.'
-                  example: hazle.hand@example.org
+                  example: mitchell.damien@example.net
                 phone_number:
                   type: string
                   description: ''
-                  example: commodi
+                  example: possimus
                 average_salary_last_year:
                   type: integer
                   description: ''
-                  example: 15
+                  example: 4
                 position:
                   type: string
                   description: ''
-                  example: front-end
+                  example: tester
                   enum:
                     - front-end
                     - back-end
@@ -594,23 +604,23 @@ paths:
                     residence_country:
                       type: string
                       description: ''
-                      example: quidem
+                      example: molestiae
                     residence_zip_code:
                       type: string
                       description: ''
-                      example: illo
+                      example: sequi
                     residence_city:
                       type: string
                       description: ''
-                      example: nesciunt
+                      example: sequi
                     residence_street:
                       type: string
                       description: ''
-                      example: cum
+                      example: et
                     residence_building_number:
                       type: string
                       description: ''
-                      example: cum
+                      example: consequuntur
                     residence_apartment_number:
                       type: string
                       description: ''
@@ -618,11 +628,11 @@ paths:
                     different_correspondence_address:
                       type: boolean
                       description: ''
-                      example: true
+                      example: false
                     correspondence_country:
                       type: string
                       description: ''
-                      example: adipisci
+                      example: et
                     correspondence_zip_code:
                       type: string
                       description: ''
@@ -630,11 +640,11 @@ paths:
                     correspondence_city:
                       type: string
                       description: ''
-                      example: quo
+                      example: tenetur
                     correspondence_street:
                       type: string
                       description: ''
-                      example: amet
+                      example: architecto
                     correspondence_building_number:
                       type: string
                       description: ''

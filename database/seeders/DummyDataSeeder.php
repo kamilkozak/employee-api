@@ -19,6 +19,6 @@ class DummyDataSeeder extends Seeder
             'abilities' => ['*'],
         ]);
 
-        Employee::factory()->count(10)->create();
+        Employee::factory()->count(20)->create();
     }
 }

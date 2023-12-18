@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Queries\EmployeeIndexQuery;
 use App\Http\Requests\BulkDestroyEmployeeRequest;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\UpdateEmployeeRequest;
@@ -12,8 +13,6 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
-use Spatie\QueryBuilder\AllowedFilter;
-use Spatie\QueryBuilder\QueryBuilder;
 use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 
 /**
@@ -28,9 +27,10 @@ class EmployeeController extends Controller
      * @queryParam filter[full_name] string
      * @queryParam filter[email] string
      * @queryParam filter[position] string
+     * @queryParam filter[employee_addresses.residence_country] string
      * @queryParam sort string
-     * @queryParam page[number] int
-     * @queryParam page[size] int
+     * @queryParam page[number] int Example: 1
+     * @queryParam page[size] int Example: 5
      *
      * @unauthenticated
      *
@@ -38,28 +38,9 @@ class EmployeeController extends Controller
      *
      * @apiResourceModel App\Models\Employee
      */
-    public function index(): AnonymousResourceCollection
+    public function index(EmployeeIndexQuery $query): AnonymousResourceCollection
     {
-        $query = Employee::query()
-            ->join('employee_addresses', 'employee_addresses.employee_id', '=', 'employees.id');
-
-        $employees = QueryBuilder::for($query)
-            ->allowedIncludes([
-                'employeeAddress',
-            ])
-            ->allowedFilters([
-                AllowedFilter::exact('full_name'),
-                AllowedFilter::exact('email'),
-                AllowedFilter::exact('position'),
-            ])
-            ->allowedSorts([
-                'full_name',
-                'email',
-                'average_salary_last_year',
-                'position',
-            ]);
-
-        return EmployeeResource::collection($employees->jsonPaginate());
+        return EmployeeResource::collection($query->jsonPaginate());
     }
 
     /**
