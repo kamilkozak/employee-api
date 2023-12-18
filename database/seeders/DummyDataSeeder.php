@@ -3,16 +3,22 @@
 namespace Database\Seeders;
 
 use App\Models\Employee;
-use App\Models\EmployeeAddress;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DummyDataSeeder extends Seeder
 {
     public function run(): void
     {
-        Employee::factory()
-            ->has(EmployeeAddress::factory())
-            ->count(10)
-            ->create();
+        User::factory()->create([
+            'email' => 'test@example.com',
+            'is_active' => true,
+        ])->tokens()->create([
+            'name' => 'login-token',
+            'token' => hash('sha256', 'N7fp6GTjO9CJD1QIhqv0Ty1ZZbJeS3tFIbToFJZQ'),
+            'abilities' => ['*'],
+        ]);
+
+        Employee::factory()->count(10)->create();
     }
 }

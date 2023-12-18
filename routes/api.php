@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\EmployeeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,12 +22,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('v1')->name('api.v1.')->group(function () {
+Route::prefix('v1')->group(function () {
 
-    Route::get('employees', [EmployeeController::class, 'index']);
-    Route::post('employees', [EmployeeController::class, 'store']);
-    Route::get('employees/{employee}', [EmployeeController::class, 'show']);
-    Route::put('employees/{employee}', [EmployeeController::class, 'update']);
-    Route::delete('employees/{employee}', [EmployeeController::class, 'destroy']);
+    Route::post('login', LoginController::class)->name('auth.login');
+    Route::post('forgot-password', ForgotPasswordController::class)->middleware('guest')->name('password.email');
+    Route::post('reset-password', ResetPasswordController::class)->middleware('guest')->name('password.reset');
 
+    Route::name('api.v1.')->group(function () {
+
+        Route::get('employees', [EmployeeController::class, 'index'])->name('employees.index');
+        Route::post('employees', [EmployeeController::class, 'store'])->name('employees.store');
+        Route::get('employees/{employee}', [EmployeeController::class, 'show'])->name('employee.show');
+        Route::put('employees/{employee}', [EmployeeController::class, 'update'])->name('employee.update');
+        Route::delete('employees/{employee}', [EmployeeController::class, 'destroy'])->name('employees.destroy');
+
+    });
 });
