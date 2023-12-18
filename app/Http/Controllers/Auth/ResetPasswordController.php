@@ -13,6 +13,9 @@ use Illuminate\Validation\ValidationException;
 
 class ResetPasswordController extends Controller
 {
+    /**
+     * @unauthenticated
+     */
     public function __invoke(ResetPasswordRequest $request)
     {
         $status = Password::reset(

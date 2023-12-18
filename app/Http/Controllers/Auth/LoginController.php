@@ -11,6 +11,9 @@ use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
+    /**
+     * @unauthenticated
+     */
     public function __invoke(LoginRequest $request): JsonResponse
     {
         $user = User::where('email', $request->email)->first();

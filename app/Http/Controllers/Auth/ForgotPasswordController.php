@@ -10,6 +10,9 @@ use Illuminate\Validation\ValidationException;
 
 class ForgotPasswordController extends Controller
 {
+    /**
+     * @unauthenticated
+     */
     public function __invoke(ForgotPasswordRequest $request): JsonResponse
     {
         $status = Password::sendResetLink(

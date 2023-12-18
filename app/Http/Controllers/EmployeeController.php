@@ -18,6 +18,9 @@ use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 
 class EmployeeController extends Controller
 {
+    /**
+     * @unauthenticated
+     */
     public function index(): AnonymousResourceCollection
     {
         $query = Employee::query()

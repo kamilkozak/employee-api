@@ -4,7 +4,6 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\EmployeeController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +16,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
 Route::prefix('v1')->group(function () {
 
