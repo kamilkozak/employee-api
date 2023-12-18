@@ -10,17 +10,17 @@
     ],
     "info": {
         "name": "Employee API docs",
-        "_postman_id": "f06900c9-172d-4c3f-bdb5-325fee655c69",
-        "description": "Employee API doc",
+        "_postman_id": "208fdfee-1437-4109-a0ec-6a79e27a33ee",
+        "description": "Employee API docs",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
         {
-            "name": "Endpoints",
+            "name": "Auth",
             "description": "",
             "item": [
                 {
-                    "name": "POST api\/v1\/login",
+                    "name": "Login",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -41,17 +41,24 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"wjerde@example.com\",\"password\":\"consectetur\"}"
+                            "raw": "{\"email\":\"test@example.com\",\"password\":\"password\"}"
                         },
                         "description": "",
                         "auth": {
                             "type": "noauth"
                         }
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"access_token\": \"2|sB3OxyfAoIHQX5zVPk5mp3ngtzm4Of72l0N3CuBR3e405f9e\"\n}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
-                    "name": "POST api\/v1\/forgot-password",
+                    "name": "Forgot Password",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -72,17 +79,24 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"ngleason@example.net\"}"
+                            "raw": "{\"email\":\"test@example.com\"}"
                         },
                         "description": "",
                         "auth": {
                             "type": "noauth"
                         }
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n      \"message\": \"We have emailed your password reset link.\"\n  }",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
-                    "name": "POST api\/v1\/reset-password",
+                    "name": "Reset Password",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -103,23 +117,79 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"token\":\"voluptatibus\",\"email\":\"ustamm@example.org\",\"password\":\"officia\"}"
+                            "raw": "{\"token\":\"e2a877917ecde7664093b16d525d0787c0ff2eae33a7a5372fe9f3e7364e6680\",\"email\":\"test@example.com\",\"password\":\"password\",\"password_confirmation\":\"password\"}"
                         },
                         "description": "",
                         "auth": {
                             "type": "noauth"
                         }
                     },
-                    "response": []
-                },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n     \"message\": \"Your password has been reset.\"\n }",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Employee",
+            "description": "",
+            "item": [
                 {
-                    "name": "GET api\/v1\/employees",
+                    "name": "Index Employee",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
                             "path": "api\/v1\/employees",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/employees"
+                            "query": [
+                                {
+                                    "key": "include",
+                                    "value": "employeeAddress",
+                                    "description": "",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bfull_name%5D",
+                                    "value": "sint",
+                                    "description": "",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bemail%5D",
+                                    "value": "adipisci",
+                                    "description": "",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bposition%5D",
+                                    "value": "mollitia",
+                                    "description": "",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "qui",
+                                    "description": "",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bnumber%5D",
+                                    "value": "15",
+                                    "description": "",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bsize%5D",
+                                    "value": "20",
+                                    "description": "",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/employees?include=employeeAddress&filter%5Bfull_name%5D=sint&filter%5Bemail%5D=adipisci&filter%5Bposition%5D=mollitia&sort=qui&page%5Bnumber%5D=15&page%5Bsize%5D=20"
                         },
                         "method": "GET",
                         "header": [
@@ -140,36 +210,15 @@
                     },
                     "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "x-ratelimit-limit",
-                                    "value": "60"
-                                },
-                                {
-                                    "key": "x-ratelimit-remaining",
-                                    "value": "59"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
+                            "header": [],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":1,\"full_name\":\"Sydni Weber MD\",\"email\":\"bergstrom.julien@example.com\",\"phone_number\":\"(903) 804-6331\",\"average_salary_last_year\":10359620,\"position\":\"tester\",\"created_at\":\"2023-12-18T11:19:51.000000Z\",\"updated_at\":\"2023-12-18T11:19:51.000000Z\"},{\"id\":2,\"full_name\":\"Prof. Oswald Schuster PhD\",\"email\":\"keeley42@example.net\",\"phone_number\":\"+1-954-388-8424\",\"average_salary_last_year\":645,\"position\":\"tester\",\"created_at\":\"2023-12-18T11:19:51.000000Z\",\"updated_at\":\"2023-12-18T11:19:51.000000Z\"},{\"id\":3,\"full_name\":\"Ms. Lillie Kling MD\",\"email\":\"brianne40@example.net\",\"phone_number\":\"(718) 484-2628\",\"average_salary_last_year\":98,\"position\":\"front-end\",\"created_at\":\"2023-12-18T11:19:51.000000Z\",\"updated_at\":\"2023-12-18T11:19:51.000000Z\"},{\"id\":4,\"full_name\":\"Franco Corwin\",\"email\":\"vrau@example.net\",\"phone_number\":\"1-360-285-6447\",\"average_salary_last_year\":769715129,\"position\":\"front-end\",\"created_at\":\"2023-12-18T11:19:51.000000Z\",\"updated_at\":\"2023-12-18T11:19:51.000000Z\"},{\"id\":5,\"full_name\":\"River Luettgen\",\"email\":\"pyost@example.com\",\"phone_number\":\"1-534-659-0840\",\"average_salary_last_year\":67319,\"position\":\"pm\",\"created_at\":\"2023-12-18T11:19:51.000000Z\",\"updated_at\":\"2023-12-18T11:19:51.000000Z\"},{\"id\":6,\"full_name\":\"Dr. Jalon Skiles DVM\",\"email\":\"jalon.denesik@example.net\",\"phone_number\":\"+15317641297\",\"average_salary_last_year\":9242,\"position\":\"back-end\",\"created_at\":\"2023-12-18T11:19:51.000000Z\",\"updated_at\":\"2023-12-18T11:19:51.000000Z\"},{\"id\":7,\"full_name\":\"Ms. Ivah Monahan IV\",\"email\":\"paolo.mills@example.org\",\"phone_number\":\"1-228-577-0158\",\"average_salary_last_year\":76881,\"position\":\"back-end\",\"created_at\":\"2023-12-18T11:19:51.000000Z\",\"updated_at\":\"2023-12-18T11:19:51.000000Z\"},{\"id\":8,\"full_name\":\"Miller Kessler\",\"email\":\"maeve.marvin@example.org\",\"phone_number\":\"+1-757-567-1167\",\"average_salary_last_year\":967145171,\"position\":\"tester\",\"created_at\":\"2023-12-18T11:19:51.000000Z\",\"updated_at\":\"2023-12-18T11:19:51.000000Z\"},{\"id\":9,\"full_name\":\"Burley Wintheiser\",\"email\":\"dickinson.shyann@example.org\",\"phone_number\":\"458-639-1668\",\"average_salary_last_year\":386,\"position\":\"designer\",\"created_at\":\"2023-12-18T11:19:51.000000Z\",\"updated_at\":\"2023-12-18T11:19:51.000000Z\"},{\"id\":10,\"full_name\":\"Dominic Larson\",\"email\":\"kessler.kristin@example.org\",\"phone_number\":\"1-424-293-5252\",\"average_salary_last_year\":3,\"position\":\"back-end\",\"created_at\":\"2023-12-18T11:19:51.000000Z\",\"updated_at\":\"2023-12-18T11:19:51.000000Z\"}],\"links\":{\"first\":\"http:\\\/\\\/employee-api.test\\\/api\\\/v1\\\/employees?page%5Bnumber%5D=1\",\"last\":\"http:\\\/\\\/employee-api.test\\\/api\\\/v1\\\/employees?page%5Bnumber%5D=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/employee-api.test\\\/api\\\/v1\\\/employees?page%5Bnumber%5D=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/employee-api.test\\\/api\\\/v1\\\/employees\",\"per_page\":30,\"to\":10,\"total\":10}}",
+                            "body": "{\"data\":[{\"id\":99,\"full_name\":\"Marielle Kuhic\",\"email\":\"royal93@example.net\",\"phone_number\":\"(660) 510-1313\",\"average_salary_last_year\":\"41.77\",\"position\":\"tester\",\"created_at\":\"2023-12-18T19:29:30.000000Z\",\"updated_at\":\"2023-12-18T19:29:30.000000Z\"},{\"id\":100,\"full_name\":\"Heidi Hermiston\",\"email\":\"sporer.ahmed@example.com\",\"phone_number\":\"+1 (930) 347-9985\",\"average_salary_last_year\":\"0.89\",\"position\":\"pm\",\"created_at\":\"2023-12-18T19:29:30.000000Z\",\"updated_at\":\"2023-12-18T19:29:30.000000Z\"}]}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "POST api\/v1\/employees",
+                    "name": "Store Employee",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -190,14 +239,21 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"full_name\":\"nostrum\",\"email\":\"dedric73@example.com\",\"phone_number\":\"eveniet\",\"average_salary_last_year\":3,\"position\":\"back-end\",\"employee_address\":{\"residence_country\":\"harum\",\"residence_zip_code\":\"voluptatibus\",\"residence_city\":\"necessitatibus\",\"residence_street\":\"sunt\",\"residence_building_number\":\"quia\",\"different_correspondence_address\":false,\"correspondence_country\":\"beatae\",\"correspondence_city\":\"sit\",\"correspondence_street\":\"quae\"}}"
+                            "raw": "{\"full_name\":\"illum\",\"email\":\"wisoky.brigitte@example.net\",\"phone_number\":\"placeat\",\"average_salary_last_year\":14,\"position\":\"pm\",\"employee_address\":{\"residence_country\":\"quasi\",\"residence_zip_code\":\"veniam\",\"residence_city\":\"laudantium\",\"residence_street\":\"et\",\"residence_building_number\":\"occaecati\",\"different_correspondence_address\":false,\"correspondence_country\":\"harum\",\"correspondence_city\":\"et\",\"correspondence_street\":\"iure\"}}"
                         },
                         "description": ""
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\"data\":{\"id\":101,\"full_name\":\"Prof. Natalie Doyle II\",\"email\":\"kathryne.bernier@example.net\",\"phone_number\":\"(781) 547-4750\",\"average_salary_last_year\":\"22.51\",\"position\":\"front-end\",\"created_at\":\"2023-12-18T19:29:30.000000Z\",\"updated_at\":\"2023-12-18T19:29:30.000000Z\"}}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
-                    "name": "GET api\/v1\/employees\/{employee_id}",
+                    "name": "Show Employee",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -229,28 +285,15 @@
                     },
                     "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":102,\"full_name\":\"Amelie Borer Sr.\",\"email\":\"abbott.elenor@example.net\",\"phone_number\":\"(740) 986-4248\",\"average_salary_last_year\":\"0.97\",\"position\":\"tester\",\"created_at\":\"2023-12-18T19:29:30.000000Z\",\"updated_at\":\"2023-12-18T19:29:30.000000Z\"}}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "PUT api\/v1\/employees\/{employee_id}",
+                    "name": "Update Employee",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -279,14 +322,21 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"full_name\":\"incidunt\",\"email\":\"rosenbaum.shanie@example.com\",\"phone_number\":\"nostrum\",\"average_salary_last_year\":8,\"position\":\"tester\",\"employee_address\":{\"residence_country\":\"possimus\",\"residence_zip_code\":\"suscipit\",\"residence_city\":\"quos\",\"residence_street\":\"quia\",\"residence_building_number\":\"accusamus\",\"different_correspondence_address\":true,\"correspondence_country\":\"cumque\",\"correspondence_city\":\"exercitationem\",\"correspondence_street\":\"voluptatem\"}}"
+                            "raw": "{\"full_name\":\"eius\",\"email\":\"hazle.hand@example.org\",\"phone_number\":\"commodi\",\"average_salary_last_year\":15,\"position\":\"front-end\",\"employee_address\":{\"residence_country\":\"quidem\",\"residence_zip_code\":\"illo\",\"residence_city\":\"nesciunt\",\"residence_street\":\"cum\",\"residence_building_number\":\"cum\",\"different_correspondence_address\":true,\"correspondence_country\":\"adipisci\",\"correspondence_city\":\"quo\",\"correspondence_street\":\"amet\"}}"
                         },
                         "description": ""
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 202,
+                            "body": "{\"data\":{\"id\":103,\"full_name\":\"Micheal Witting\",\"email\":\"zoey.ruecker@example.com\",\"phone_number\":\"929.655.8391\",\"average_salary_last_year\":\"5399312.51\",\"position\":\"back-end\",\"created_at\":\"2023-12-18T19:29:30.000000Z\",\"updated_at\":\"2023-12-18T19:29:30.000000Z\"}}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
-                    "name": "DELETE api\/v1\/employees\/{id}",
+                    "name": "Destroy Employee",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -316,10 +366,17 @@
                         "body": null,
                         "description": ""
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
-                    "name": "DELETE api\/v1\/employees",
+                    "name": "Bulk Destroy Employee",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -340,11 +397,18 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"employee_ids\":[11]}"
+                            "raw": "{\"employee_ids\":[\"dolores\"]}"
                         },
                         "description": ""
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         }

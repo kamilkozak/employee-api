@@ -18,11 +18,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $residence_building_number
  * @property string|null $residence_apartment_number
  * @property int $different_correspondence_address
- * @property string $correspondence_country
- * @property string $correspondence_zip_code
- * @property string $correspondence_city
- * @property string $correspondence_street
- * @property string $correspondence_building_number
+ * @property string|null $correspondence_country
+ * @property string|null $correspondence_zip_code
+ * @property string|null $correspondence_city
+ * @property string|null $correspondence_street
+ * @property string|null $correspondence_building_number
  * @property string|null $correspondence_apartment_number
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at

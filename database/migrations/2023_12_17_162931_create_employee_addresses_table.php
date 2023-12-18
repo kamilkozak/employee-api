@@ -18,11 +18,11 @@ return new class extends Migration
             $table->string('residence_building_number');
             $table->string('residence_apartment_number')->nullable();
             $table->boolean('different_correspondence_address');
-            $table->string('correspondence_country');
-            $table->string('correspondence_zip_code');
-            $table->string('correspondence_city');
-            $table->string('correspondence_street');
-            $table->string('correspondence_building_number');
+            $table->string('correspondence_country')->nullable();
+            $table->string('correspondence_zip_code')->nullable();
+            $table->string('correspondence_city')->nullable();
+            $table->string('correspondence_street')->nullable();
+            $table->string('correspondence_building_number')->nullable();
             $table->string('correspondence_apartment_number')->nullable();
             $table->timestamps();
 

@@ -3,7 +3,9 @@
 namespace App\Http\Requests;
 
 use App\Enums\Position;
+use App\Models\Employee;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Enum;
 
 class StoreEmployeeRequest extends FormRequest
@@ -12,7 +14,7 @@ class StoreEmployeeRequest extends FormRequest
     {
         return [
             'full_name' => ['required', 'string'],
-            'email' => ['required', 'email', 'max:254'],
+            'email' => ['required', 'email', 'max:254', Rule::unique(Employee::class)],
             'phone_number' => ['nullable', 'string'],
             'average_salary_last_year' => ['nullable', 'integer'],
             'position' => ['required', new Enum(Position::class)],

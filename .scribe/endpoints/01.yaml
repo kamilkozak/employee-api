@@ -1,0 +1,733 @@
+name: Employee
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/employees
+    metadata:
+      groupName: Employee
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Index Employee'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      include:
+        name: include
+        description: ''
+        required: false
+        example: employeeAddress
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      'filter[full_name]':
+        name: 'filter[full_name]'
+        description: ''
+        required: false
+        example: sint
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'filter[email]':
+        name: 'filter[email]'
+        description: ''
+        required: false
+        example: adipisci
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'filter[position]':
+        name: 'filter[position]'
+        description: ''
+        required: false
+        example: mollitia
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      sort:
+        name: sort
+        description: ''
+        required: false
+        example: qui
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'page[number]':
+        name: 'page[number]'
+        description: ''
+        required: false
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'page[size]':
+        name: 'page[size]'
+        description: ''
+        required: false
+        example: 20
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanQueryParameters:
+      include: employeeAddress
+      'filter[full_name]': sint
+      'filter[email]': adipisci
+      'filter[position]': mollitia
+      sort: qui
+      'page[number]': 15
+      'page[size]': 20
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":99,"full_name":"Marielle Kuhic","email":"royal93@example.net","phone_number":"(660) 510-1313","average_salary_last_year":"41.77","position":"tester","created_at":"2023-12-18T19:29:30.000000Z","updated_at":"2023-12-18T19:29:30.000000Z"},{"id":100,"full_name":"Heidi Hermiston","email":"sporer.ahmed@example.com","phone_number":"+1 (930) 347-9985","average_salary_last_year":"0.89","position":"pm","created_at":"2023-12-18T19:29:30.000000Z","updated_at":"2023-12-18T19:29:30.000000Z"}]}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/employees
+    metadata:
+      groupName: Employee
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Store Employee'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      full_name:
+        name: full_name
+        description: ''
+        required: true
+        example: illum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 254 characters.'
+        required: true
+        example: wisoky.brigitte@example.net
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      phone_number:
+        name: phone_number
+        description: ''
+        required: false
+        example: placeat
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      average_salary_last_year:
+        name: average_salary_last_year
+        description: ''
+        required: false
+        example: 14
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      position:
+        name: position
+        description: ''
+        required: true
+        example: pm
+        type: string
+        enumValues:
+          - front-end
+          - back-end
+          - pm
+          - designer
+          - tester
+        exampleWasSpecified: false
+        custom: []
+      employee_address:
+        name: employee_address
+        description: ''
+        required: true
+        example: []
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.residence_country:
+        name: employee_address.residence_country
+        description: ''
+        required: true
+        example: quasi
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.residence_zip_code:
+        name: employee_address.residence_zip_code
+        description: ''
+        required: true
+        example: veniam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.residence_city:
+        name: employee_address.residence_city
+        description: ''
+        required: true
+        example: laudantium
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.residence_street:
+        name: employee_address.residence_street
+        description: ''
+        required: true
+        example: et
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.residence_building_number:
+        name: employee_address.residence_building_number
+        description: ''
+        required: true
+        example: occaecati
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.residence_apartment_number:
+        name: employee_address.residence_apartment_number
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.different_correspondence_address:
+        name: employee_address.different_correspondence_address
+        description: ''
+        required: true
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.correspondence_country:
+        name: employee_address.correspondence_country
+        description: ''
+        required: false
+        example: harum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.correspondence_zip_code:
+        name: employee_address.correspondence_zip_code
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.correspondence_city:
+        name: employee_address.correspondence_city
+        description: ''
+        required: false
+        example: et
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.correspondence_street:
+        name: employee_address.correspondence_street
+        description: ''
+        required: false
+        example: iure
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.correspondence_building_number:
+        name: employee_address.correspondence_building_number
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.correspondence_apartment_number:
+        name: employee_address.correspondence_apartment_number
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      full_name: illum
+      email: wisoky.brigitte@example.net
+      phone_number: placeat
+      average_salary_last_year: 14
+      position: pm
+      employee_address:
+        residence_country: quasi
+        residence_zip_code: veniam
+        residence_city: laudantium
+        residence_street: et
+        residence_building_number: occaecati
+        different_correspondence_address: false
+        correspondence_country: harum
+        correspondence_city: et
+        correspondence_street: iure
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: '{"data":{"id":101,"full_name":"Prof. Natalie Doyle II","email":"kathryne.bernier@example.net","phone_number":"(781) 547-4750","average_salary_last_year":"22.51","position":"front-end","created_at":"2023-12-18T19:29:30.000000Z","updated_at":"2023-12-18T19:29:30.000000Z"}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer abe8156a6hDZdkVcgv4PE3f'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/employees/{employee_id}'
+    metadata:
+      groupName: Employee
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Show Employee'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      employee_id:
+        name: employee_id
+        description: 'The ID of the employee.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      employee_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":102,"full_name":"Amelie Borer Sr.","email":"abbott.elenor@example.net","phone_number":"(740) 986-4248","average_salary_last_year":"0.97","position":"tester","created_at":"2023-12-18T19:29:30.000000Z","updated_at":"2023-12-18T19:29:30.000000Z"}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 83E45cDeabVdkav61ZfgP6h'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/employees/{employee_id}'
+    metadata:
+      groupName: Employee
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update Employee'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      employee_id:
+        name: employee_id
+        description: 'The ID of the employee.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      employee_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      full_name:
+        name: full_name
+        description: ''
+        required: true
+        example: eius
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 254 characters.'
+        required: true
+        example: hazle.hand@example.org
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      phone_number:
+        name: phone_number
+        description: ''
+        required: false
+        example: commodi
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      average_salary_last_year:
+        name: average_salary_last_year
+        description: ''
+        required: false
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      position:
+        name: position
+        description: ''
+        required: true
+        example: front-end
+        type: string
+        enumValues:
+          - front-end
+          - back-end
+          - pm
+          - designer
+          - tester
+        exampleWasSpecified: false
+        custom: []
+      employee_address:
+        name: employee_address
+        description: ''
+        required: true
+        example: []
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.residence_country:
+        name: employee_address.residence_country
+        description: ''
+        required: true
+        example: quidem
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.residence_zip_code:
+        name: employee_address.residence_zip_code
+        description: ''
+        required: true
+        example: illo
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.residence_city:
+        name: employee_address.residence_city
+        description: ''
+        required: true
+        example: nesciunt
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.residence_street:
+        name: employee_address.residence_street
+        description: ''
+        required: true
+        example: cum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.residence_building_number:
+        name: employee_address.residence_building_number
+        description: ''
+        required: true
+        example: cum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.residence_apartment_number:
+        name: employee_address.residence_apartment_number
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.different_correspondence_address:
+        name: employee_address.different_correspondence_address
+        description: ''
+        required: true
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.correspondence_country:
+        name: employee_address.correspondence_country
+        description: ''
+        required: false
+        example: adipisci
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.correspondence_zip_code:
+        name: employee_address.correspondence_zip_code
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.correspondence_city:
+        name: employee_address.correspondence_city
+        description: ''
+        required: false
+        example: quo
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.correspondence_street:
+        name: employee_address.correspondence_street
+        description: ''
+        required: false
+        example: amet
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.correspondence_building_number:
+        name: employee_address.correspondence_building_number
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      employee_address.correspondence_apartment_number:
+        name: employee_address.correspondence_apartment_number
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      full_name: eius
+      email: hazle.hand@example.org
+      phone_number: commodi
+      average_salary_last_year: 15
+      position: front-end
+      employee_address:
+        residence_country: quidem
+        residence_zip_code: illo
+        residence_city: nesciunt
+        residence_street: cum
+        residence_building_number: cum
+        different_correspondence_address: true
+        correspondence_country: adipisci
+        correspondence_city: quo
+        correspondence_street: amet
+    fileParameters: []
+    responses:
+      -
+        status: 202
+        content: '{"data":{"id":103,"full_name":"Micheal Witting","email":"zoey.ruecker@example.com","phone_number":"929.655.8391","average_salary_last_year":"5399312.51","position":"back-end","created_at":"2023-12-18T19:29:30.000000Z","updated_at":"2023-12-18T19:29:30.000000Z"}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer a1P36bd8ehagfv4E6D5ckVZ'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/employees/{id}'
+    metadata:
+      groupName: Employee
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Destroy Employee'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the employee.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 204
+        content: '{}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer dfvVZ864PD61bcE3ahegk5a'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: api/v1/employees
+    metadata:
+      groupName: Employee
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Bulk Destroy Employee'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      employee_ids:
+        name: employee_ids
+        description: ''
+        required: false
+        example:
+          - dolores
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      employee_ids:
+        - dolores
+    fileParameters: []
+    responses:
+      -
+        status: 204
+        content: '{}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer afev4dc6bVaDh86k5g1ZPE3'
+    controller: null
+    method: null
+    route: null
+    custom: []

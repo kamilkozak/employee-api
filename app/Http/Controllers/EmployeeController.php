@@ -16,10 +16,27 @@ use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 
+/**
+ * @group Employee
+ */
 class EmployeeController extends Controller
 {
     /**
+     * Index Employee
+     *
+     * @queryParam include string Example: employeeAddress
+     * @queryParam filter[full_name] string
+     * @queryParam filter[email] string
+     * @queryParam filter[position] string
+     * @queryParam sort string
+     * @queryParam page[number] int
+     * @queryParam page[size] int
+     *
      * @unauthenticated
+     *
+     * @apiResourceCollection App\Http\Resources\EmployeeResource
+     *
+     * @apiResourceModel App\Models\Employee
      */
     public function index(): AnonymousResourceCollection
     {
@@ -45,6 +62,13 @@ class EmployeeController extends Controller
         return EmployeeResource::collection($employees->jsonPaginate());
     }
 
+    /**
+     * Store Employee
+     *
+     * @apiResource status=201 App\Http\Resources\EmployeeResource
+     *
+     * @apiResourceModel App\Models\Employee
+     */
     public function store(StoreEmployeeRequest $request): JsonResponse
     {
         DB::beginTransaction();
@@ -64,12 +88,26 @@ class EmployeeController extends Controller
             ->setStatusCode(Response::HTTP_CREATED);
     }
 
+    /**
+     * Show Employee
+     *
+     * @apiResource App\Http\Resources\EmployeeResource
+     *
+     * @apiResourceModel App\Models\Employee
+     */
     public function show(Employee $employee): EmployeeResource
     {
         return new EmployeeResource($employee->load('employeeAddress'));
     }
 
-    public function update(UpdateEmployeeRequest $request, Employee $employee)
+    /**
+     * Update Employee
+     *
+     * @apiResource status=202 App\Http\Resources\EmployeeResource
+     *
+     * @apiResourceModel App\Models\Employee
+     */
+    public function update(UpdateEmployeeRequest $request, Employee $employee): JsonResponse
     {
         DB::beginTransaction();
 
@@ -88,6 +126,11 @@ class EmployeeController extends Controller
             ->setStatusCode(Response::HTTP_ACCEPTED);
     }
 
+    /**
+     * Destroy Employee
+     *
+     * @response 204
+     */
     public function destroy(Employee $employee): JsonResponse
     {
         DB::beginTransaction();
@@ -105,6 +148,13 @@ class EmployeeController extends Controller
         return response()->json(status: Response::HTTP_NO_CONTENT);
     }
 
+    /**
+     * Bulk Destroy Employee
+     *
+     * @bodyParam employee_ids array
+     *
+     * @response 204
+     */
     public function bulkDestroy(BulkDestroyEmployeeRequest $request): JsonResponse
     {
         DB::beginTransaction();

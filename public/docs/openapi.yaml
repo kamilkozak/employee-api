@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: 'Employee API docs'
-  description: 'Employee API doc'
+  description: 'Employee API docs'
   version: 1.0.0
 servers:
   -
@@ -9,92 +9,8 @@ servers:
 paths:
   /api/v1/login:
     post:
-      summary: ''
-      operationId: postApiV1Login
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                email:
-                  type: string
-                  description: 'Must be a valid email address.'
-                  example: wjerde@example.com
-                password:
-                  type: string
-                  description: ''
-                  example: consectetur
-              required:
-                - email
-                - password
-      security: []
-  /api/v1/forgot-password:
-    post:
-      summary: ''
-      operationId: postApiV1ForgotPassword
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                email:
-                  type: string
-                  description: 'Must be a valid email address.'
-                  example: ngleason@example.net
-              required:
-                - email
-      security: []
-  /api/v1/reset-password:
-    post:
-      summary: ''
-      operationId: postApiV1ResetPassword
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                token:
-                  type: string
-                  description: ''
-                  example: voluptatibus
-                email:
-                  type: string
-                  description: 'Must be a valid email address.'
-                  example: ustamm@example.org
-                password:
-                  type: string
-                  description: ''
-                  example: officia
-              required:
-                - token
-                - email
-                - password
-      security: []
-  /api/v1/employees:
-    get:
-      summary: ''
-      operationId: getApiV1Employees
+      summary: Login
+      operationId: login
       description: ''
       parameters: []
       responses:
@@ -105,321 +21,314 @@ paths:
               schema:
                 type: object
                 example:
+                  access_token: 2|sB3OxyfAoIHQX5zVPk5mp3ngtzm4Of72l0N3CuBR3e405f9e
+                properties:
+                  access_token:
+                    type: string
+                    example: 2|sB3OxyfAoIHQX5zVPk5mp3ngtzm4Of72l0N3CuBR3e405f9e
+      tags:
+        - Auth
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: ''
+                  example: test@example.com
+                password:
+                  type: string
+                  description: ''
+                  example: password
+      security: []
+  /api/v1/forgot-password:
+    post:
+      summary: 'Forgot Password'
+      operationId: forgotPassword
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'We have emailed your password reset link.'
+                properties:
+                  message:
+                    type: string
+                    example: 'We have emailed your password reset link.'
+      tags:
+        - Auth
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: ''
+                  example: test@example.com
+      security: []
+  /api/v1/reset-password:
+    post:
+      summary: 'Reset Password'
+      operationId: resetPassword
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Your password has been reset.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Your password has been reset.'
+      tags:
+        - Auth
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  description: ''
+                  example: e2a877917ecde7664093b16d525d0787c0ff2eae33a7a5372fe9f3e7364e6680
+                email:
+                  type: string
+                  description: ''
+                  example: test@example.com
+                password:
+                  type: string
+                  description: ''
+                  example: password
+                password_confirmation:
+                  type: string
+                  description: ''
+                  example: password
+      security: []
+  /api/v1/employees:
+    get:
+      summary: 'Index Employee'
+      operationId: indexEmployee
+      description: ''
+      parameters:
+        -
+          in: query
+          name: include
+          description: ''
+          example: employeeAddress
+          required: false
+          schema:
+            type: string
+            description: ''
+            example: employeeAddress
+        -
+          in: query
+          name: 'filter[full_name]'
+          description: ''
+          example: sint
+          required: false
+          schema:
+            type: string
+            description: ''
+            example: sint
+        -
+          in: query
+          name: 'filter[email]'
+          description: ''
+          example: adipisci
+          required: false
+          schema:
+            type: string
+            description: ''
+            example: adipisci
+        -
+          in: query
+          name: 'filter[position]'
+          description: ''
+          example: mollitia
+          required: false
+          schema:
+            type: string
+            description: ''
+            example: mollitia
+        -
+          in: query
+          name: sort
+          description: ''
+          example: qui
+          required: false
+          schema:
+            type: string
+            description: ''
+            example: qui
+        -
+          in: query
+          name: 'page[number]'
+          description: ''
+          example: 15
+          required: false
+          schema:
+            type: integer
+            description: ''
+            example: 15
+        -
+          in: query
+          name: 'page[size]'
+          description: ''
+          example: 20
+          required: false
+          schema:
+            type: integer
+            description: ''
+            example: 20
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
                   data:
                     -
-                      id: 1
-                      full_name: 'Sydni Weber MD'
-                      email: bergstrom.julien@example.com
-                      phone_number: '(903) 804-6331'
-                      average_salary_last_year: 10359620
+                      id: 99
+                      full_name: 'Marielle Kuhic'
+                      email: royal93@example.net
+                      phone_number: '(660) 510-1313'
+                      average_salary_last_year: '41.77'
                       position: tester
-                      created_at: '2023-12-18T11:19:51.000000Z'
-                      updated_at: '2023-12-18T11:19:51.000000Z'
+                      created_at: '2023-12-18T19:29:30.000000Z'
+                      updated_at: '2023-12-18T19:29:30.000000Z'
                     -
-                      id: 2
-                      full_name: 'Prof. Oswald Schuster PhD'
-                      email: keeley42@example.net
-                      phone_number: +1-954-388-8424
-                      average_salary_last_year: 645
-                      position: tester
-                      created_at: '2023-12-18T11:19:51.000000Z'
-                      updated_at: '2023-12-18T11:19:51.000000Z'
-                    -
-                      id: 3
-                      full_name: 'Ms. Lillie Kling MD'
-                      email: brianne40@example.net
-                      phone_number: '(718) 484-2628'
-                      average_salary_last_year: 98
-                      position: front-end
-                      created_at: '2023-12-18T11:19:51.000000Z'
-                      updated_at: '2023-12-18T11:19:51.000000Z'
-                    -
-                      id: 4
-                      full_name: 'Franco Corwin'
-                      email: vrau@example.net
-                      phone_number: 1-360-285-6447
-                      average_salary_last_year: 769715129
-                      position: front-end
-                      created_at: '2023-12-18T11:19:51.000000Z'
-                      updated_at: '2023-12-18T11:19:51.000000Z'
-                    -
-                      id: 5
-                      full_name: 'River Luettgen'
-                      email: pyost@example.com
-                      phone_number: 1-534-659-0840
-                      average_salary_last_year: 67319
+                      id: 100
+                      full_name: 'Heidi Hermiston'
+                      email: sporer.ahmed@example.com
+                      phone_number: '+1 (930) 347-9985'
+                      average_salary_last_year: '0.89'
                       position: pm
-                      created_at: '2023-12-18T11:19:51.000000Z'
-                      updated_at: '2023-12-18T11:19:51.000000Z'
-                    -
-                      id: 6
-                      full_name: 'Dr. Jalon Skiles DVM'
-                      email: jalon.denesik@example.net
-                      phone_number: '+15317641297'
-                      average_salary_last_year: 9242
-                      position: back-end
-                      created_at: '2023-12-18T11:19:51.000000Z'
-                      updated_at: '2023-12-18T11:19:51.000000Z'
-                    -
-                      id: 7
-                      full_name: 'Ms. Ivah Monahan IV'
-                      email: paolo.mills@example.org
-                      phone_number: 1-228-577-0158
-                      average_salary_last_year: 76881
-                      position: back-end
-                      created_at: '2023-12-18T11:19:51.000000Z'
-                      updated_at: '2023-12-18T11:19:51.000000Z'
-                    -
-                      id: 8
-                      full_name: 'Miller Kessler'
-                      email: maeve.marvin@example.org
-                      phone_number: +1-757-567-1167
-                      average_salary_last_year: 967145171
-                      position: tester
-                      created_at: '2023-12-18T11:19:51.000000Z'
-                      updated_at: '2023-12-18T11:19:51.000000Z'
-                    -
-                      id: 9
-                      full_name: 'Burley Wintheiser'
-                      email: dickinson.shyann@example.org
-                      phone_number: 458-639-1668
-                      average_salary_last_year: 386
-                      position: designer
-                      created_at: '2023-12-18T11:19:51.000000Z'
-                      updated_at: '2023-12-18T11:19:51.000000Z'
-                    -
-                      id: 10
-                      full_name: 'Dominic Larson'
-                      email: kessler.kristin@example.org
-                      phone_number: 1-424-293-5252
-                      average_salary_last_year: 3
-                      position: back-end
-                      created_at: '2023-12-18T11:19:51.000000Z'
-                      updated_at: '2023-12-18T11:19:51.000000Z'
-                  links:
-                    first: 'http://employee-api.test/api/v1/employees?page%5Bnumber%5D=1'
-                    last: 'http://employee-api.test/api/v1/employees?page%5Bnumber%5D=1'
-                    prev: null
-                    next: null
-                  meta:
-                    current_page: 1
-                    from: 1
-                    last_page: 1
-                    links:
-                      -
-                        url: null
-                        label: '&laquo; Previous'
-                        active: false
-                      -
-                        url: 'http://employee-api.test/api/v1/employees?page%5Bnumber%5D=1'
-                        label: '1'
-                        active: true
-                      -
-                        url: null
-                        label: 'Next &raquo;'
-                        active: false
-                    path: 'http://employee-api.test/api/v1/employees'
-                    per_page: 30
-                    to: 10
-                    total: 10
+                      created_at: '2023-12-18T19:29:30.000000Z'
+                      updated_at: '2023-12-18T19:29:30.000000Z'
                 properties:
                   data:
                     type: array
                     example:
                       -
-                        id: 1
-                        full_name: 'Sydni Weber MD'
-                        email: bergstrom.julien@example.com
-                        phone_number: '(903) 804-6331'
-                        average_salary_last_year: 10359620
+                        id: 99
+                        full_name: 'Marielle Kuhic'
+                        email: royal93@example.net
+                        phone_number: '(660) 510-1313'
+                        average_salary_last_year: '41.77'
                         position: tester
-                        created_at: '2023-12-18T11:19:51.000000Z'
-                        updated_at: '2023-12-18T11:19:51.000000Z'
+                        created_at: '2023-12-18T19:29:30.000000Z'
+                        updated_at: '2023-12-18T19:29:30.000000Z'
                       -
-                        id: 2
-                        full_name: 'Prof. Oswald Schuster PhD'
-                        email: keeley42@example.net
-                        phone_number: +1-954-388-8424
-                        average_salary_last_year: 645
-                        position: tester
-                        created_at: '2023-12-18T11:19:51.000000Z'
-                        updated_at: '2023-12-18T11:19:51.000000Z'
-                      -
-                        id: 3
-                        full_name: 'Ms. Lillie Kling MD'
-                        email: brianne40@example.net
-                        phone_number: '(718) 484-2628'
-                        average_salary_last_year: 98
-                        position: front-end
-                        created_at: '2023-12-18T11:19:51.000000Z'
-                        updated_at: '2023-12-18T11:19:51.000000Z'
-                      -
-                        id: 4
-                        full_name: 'Franco Corwin'
-                        email: vrau@example.net
-                        phone_number: 1-360-285-6447
-                        average_salary_last_year: 769715129
-                        position: front-end
-                        created_at: '2023-12-18T11:19:51.000000Z'
-                        updated_at: '2023-12-18T11:19:51.000000Z'
-                      -
-                        id: 5
-                        full_name: 'River Luettgen'
-                        email: pyost@example.com
-                        phone_number: 1-534-659-0840
-                        average_salary_last_year: 67319
+                        id: 100
+                        full_name: 'Heidi Hermiston'
+                        email: sporer.ahmed@example.com
+                        phone_number: '+1 (930) 347-9985'
+                        average_salary_last_year: '0.89'
                         position: pm
-                        created_at: '2023-12-18T11:19:51.000000Z'
-                        updated_at: '2023-12-18T11:19:51.000000Z'
-                      -
-                        id: 6
-                        full_name: 'Dr. Jalon Skiles DVM'
-                        email: jalon.denesik@example.net
-                        phone_number: '+15317641297'
-                        average_salary_last_year: 9242
-                        position: back-end
-                        created_at: '2023-12-18T11:19:51.000000Z'
-                        updated_at: '2023-12-18T11:19:51.000000Z'
-                      -
-                        id: 7
-                        full_name: 'Ms. Ivah Monahan IV'
-                        email: paolo.mills@example.org
-                        phone_number: 1-228-577-0158
-                        average_salary_last_year: 76881
-                        position: back-end
-                        created_at: '2023-12-18T11:19:51.000000Z'
-                        updated_at: '2023-12-18T11:19:51.000000Z'
-                      -
-                        id: 8
-                        full_name: 'Miller Kessler'
-                        email: maeve.marvin@example.org
-                        phone_number: +1-757-567-1167
-                        average_salary_last_year: 967145171
-                        position: tester
-                        created_at: '2023-12-18T11:19:51.000000Z'
-                        updated_at: '2023-12-18T11:19:51.000000Z'
-                      -
-                        id: 9
-                        full_name: 'Burley Wintheiser'
-                        email: dickinson.shyann@example.org
-                        phone_number: 458-639-1668
-                        average_salary_last_year: 386
-                        position: designer
-                        created_at: '2023-12-18T11:19:51.000000Z'
-                        updated_at: '2023-12-18T11:19:51.000000Z'
-                      -
-                        id: 10
-                        full_name: 'Dominic Larson'
-                        email: kessler.kristin@example.org
-                        phone_number: 1-424-293-5252
-                        average_salary_last_year: 3
-                        position: back-end
-                        created_at: '2023-12-18T11:19:51.000000Z'
-                        updated_at: '2023-12-18T11:19:51.000000Z'
+                        created_at: '2023-12-18T19:29:30.000000Z'
+                        updated_at: '2023-12-18T19:29:30.000000Z'
                     items:
                       type: object
                       properties:
                         id:
                           type: integer
-                          example: 1
+                          example: 99
                         full_name:
                           type: string
-                          example: 'Sydni Weber MD'
+                          example: 'Marielle Kuhic'
                         email:
                           type: string
-                          example: bergstrom.julien@example.com
+                          example: royal93@example.net
                         phone_number:
                           type: string
-                          example: '(903) 804-6331'
+                          example: '(660) 510-1313'
                         average_salary_last_year:
-                          type: integer
-                          example: 10359620
+                          type: string
+                          example: '41.77'
                         position:
                           type: string
                           example: tester
                         created_at:
                           type: string
-                          example: '2023-12-18T11:19:51.000000Z'
+                          example: '2023-12-18T19:29:30.000000Z'
                         updated_at:
                           type: string
-                          example: '2023-12-18T11:19:51.000000Z'
-                  links:
-                    type: object
-                    properties:
-                      first:
-                        type: string
-                        example: 'http://employee-api.test/api/v1/employees?page%5Bnumber%5D=1'
-                      last:
-                        type: string
-                        example: 'http://employee-api.test/api/v1/employees?page%5Bnumber%5D=1'
-                      prev:
-                        type: string
-                        example: null
-                      next:
-                        type: string
-                        example: null
-                  meta:
-                    type: object
-                    properties:
-                      current_page:
-                        type: integer
-                        example: 1
-                      from:
-                        type: integer
-                        example: 1
-                      last_page:
-                        type: integer
-                        example: 1
-                      links:
-                        type: array
-                        example:
-                          -
-                            url: null
-                            label: '&laquo; Previous'
-                            active: false
-                          -
-                            url: 'http://employee-api.test/api/v1/employees?page%5Bnumber%5D=1'
-                            label: '1'
-                            active: true
-                          -
-                            url: null
-                            label: 'Next &raquo;'
-                            active: false
-                        items:
-                          type: object
-                          properties:
-                            url:
-                              type: string
-                              example: null
-                            label:
-                              type: string
-                              example: '&laquo; Previous'
-                            active:
-                              type: boolean
-                              example: false
-                      path:
-                        type: string
-                        example: 'http://employee-api.test/api/v1/employees'
-                      per_page:
-                        type: integer
-                        example: 30
-                      to:
-                        type: integer
-                        example: 10
-                      total:
-                        type: integer
-                        example: 10
+                          example: '2023-12-18T19:29:30.000000Z'
       tags:
-        - Endpoints
+        - Employee
       security: []
     post:
-      summary: ''
-      operationId: postApiV1Employees
+      summary: 'Store Employee'
+      operationId: storeEmployee
       description: ''
       parameters: []
-      responses: {  }
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 101
+                    full_name: 'Prof. Natalie Doyle II'
+                    email: kathryne.bernier@example.net
+                    phone_number: '(781) 547-4750'
+                    average_salary_last_year: '22.51'
+                    position: front-end
+                    created_at: '2023-12-18T19:29:30.000000Z'
+                    updated_at: '2023-12-18T19:29:30.000000Z'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 101
+                      full_name:
+                        type: string
+                        example: 'Prof. Natalie Doyle II'
+                      email:
+                        type: string
+                        example: kathryne.bernier@example.net
+                      phone_number:
+                        type: string
+                        example: '(781) 547-4750'
+                      average_salary_last_year:
+                        type: string
+                        example: '22.51'
+                      position:
+                        type: string
+                        example: front-end
+                      created_at:
+                        type: string
+                        example: '2023-12-18T19:29:30.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2023-12-18T19:29:30.000000Z'
       tags:
-        - Endpoints
+        - Employee
       requestBody:
         required: true
         content:
@@ -430,23 +339,23 @@ paths:
                 full_name:
                   type: string
                   description: ''
-                  example: nostrum
+                  example: illum
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 254 characters.'
-                  example: dedric73@example.com
+                  example: wisoky.brigitte@example.net
                 phone_number:
                   type: string
                   description: ''
-                  example: eveniet
+                  example: placeat
                 average_salary_last_year:
                   type: integer
                   description: ''
-                  example: 3
+                  example: 14
                 position:
                   type: string
                   description: ''
-                  example: back-end
+                  example: pm
                   enum:
                     - front-end
                     - back-end
@@ -461,23 +370,23 @@ paths:
                     residence_country:
                       type: string
                       description: ''
-                      example: harum
+                      example: quasi
                     residence_zip_code:
                       type: string
                       description: ''
-                      example: voluptatibus
+                      example: veniam
                     residence_city:
                       type: string
                       description: ''
-                      example: necessitatibus
+                      example: laudantium
                     residence_street:
                       type: string
                       description: ''
-                      example: sunt
+                      example: et
                     residence_building_number:
                       type: string
                       description: ''
-                      example: quia
+                      example: occaecati
                     residence_apartment_number:
                       type: string
                       description: ''
@@ -489,7 +398,7 @@ paths:
                     correspondence_country:
                       type: string
                       description: ''
-                      example: beatae
+                      example: harum
                     correspondence_zip_code:
                       type: string
                       description: ''
@@ -497,11 +406,11 @@ paths:
                     correspondence_city:
                       type: string
                       description: ''
-                      example: sit
+                      example: et
                     correspondence_street:
                       type: string
                       description: ''
-                      example: quae
+                      example: iure
                     correspondence_building_number:
                       type: string
                       description: ''
@@ -516,15 +425,17 @@ paths:
                 - position
                 - employee_address
     delete:
-      summary: ''
-      operationId: deleteApiV1Employees
+      summary: 'Bulk Destroy Employee'
+      operationId: bulkDestroyEmployee
       description: ''
       parameters: []
-      responses: {  }
+      responses:
+        204:
+          description: ''
       tags:
-        - Endpoints
+        - Employee
       requestBody:
-        required: true
+        required: false
         content:
           application/json:
             schema:
@@ -534,40 +445,114 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - 11
+                    - dolores
                   items:
-                    type: integer
-              required:
-                - employee_ids
+                    type: string
   '/api/v1/employees/{employee_id}':
     get:
-      summary: ''
-      operationId: getApiV1EmployeesEmployee_id
+      summary: 'Show Employee'
+      operationId: showEmployee
       description: ''
       parameters: []
       responses:
-        401:
+        200:
           description: ''
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  message: Unauthenticated.
+                  data:
+                    id: 102
+                    full_name: 'Amelie Borer Sr.'
+                    email: abbott.elenor@example.net
+                    phone_number: '(740) 986-4248'
+                    average_salary_last_year: '0.97'
+                    position: tester
+                    created_at: '2023-12-18T19:29:30.000000Z'
+                    updated_at: '2023-12-18T19:29:30.000000Z'
                 properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 102
+                      full_name:
+                        type: string
+                        example: 'Amelie Borer Sr.'
+                      email:
+                        type: string
+                        example: abbott.elenor@example.net
+                      phone_number:
+                        type: string
+                        example: '(740) 986-4248'
+                      average_salary_last_year:
+                        type: string
+                        example: '0.97'
+                      position:
+                        type: string
+                        example: tester
+                      created_at:
+                        type: string
+                        example: '2023-12-18T19:29:30.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2023-12-18T19:29:30.000000Z'
       tags:
-        - Endpoints
+        - Employee
     put:
-      summary: ''
-      operationId: putApiV1EmployeesEmployee_id
+      summary: 'Update Employee'
+      operationId: updateEmployee
       description: ''
       parameters: []
-      responses: {  }
+      responses:
+        202:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 103
+                    full_name: 'Micheal Witting'
+                    email: zoey.ruecker@example.com
+                    phone_number: 929.655.8391
+                    average_salary_last_year: '5399312.51'
+                    position: back-end
+                    created_at: '2023-12-18T19:29:30.000000Z'
+                    updated_at: '2023-12-18T19:29:30.000000Z'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 103
+                      full_name:
+                        type: string
+                        example: 'Micheal Witting'
+                      email:
+                        type: string
+                        example: zoey.ruecker@example.com
+                      phone_number:
+                        type: string
+                        example: 929.655.8391
+                      average_salary_last_year:
+                        type: string
+                        example: '5399312.51'
+                      position:
+                        type: string
+                        example: back-end
+                      created_at:
+                        type: string
+                        example: '2023-12-18T19:29:30.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2023-12-18T19:29:30.000000Z'
       tags:
-        - Endpoints
+        - Employee
       requestBody:
         required: true
         content:
@@ -578,23 +563,23 @@ paths:
                 full_name:
                   type: string
                   description: ''
-                  example: incidunt
+                  example: eius
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 254 characters.'
-                  example: rosenbaum.shanie@example.com
+                  example: hazle.hand@example.org
                 phone_number:
                   type: string
                   description: ''
-                  example: nostrum
+                  example: commodi
                 average_salary_last_year:
                   type: integer
                   description: ''
-                  example: 8
+                  example: 15
                 position:
                   type: string
                   description: ''
-                  example: tester
+                  example: front-end
                   enum:
                     - front-end
                     - back-end
@@ -609,23 +594,23 @@ paths:
                     residence_country:
                       type: string
                       description: ''
-                      example: possimus
+                      example: quidem
                     residence_zip_code:
                       type: string
                       description: ''
-                      example: suscipit
+                      example: illo
                     residence_city:
                       type: string
                       description: ''
-                      example: quos
+                      example: nesciunt
                     residence_street:
                       type: string
                       description: ''
-                      example: quia
+                      example: cum
                     residence_building_number:
                       type: string
                       description: ''
-                      example: accusamus
+                      example: cum
                     residence_apartment_number:
                       type: string
                       description: ''
@@ -637,7 +622,7 @@ paths:
                     correspondence_country:
                       type: string
                       description: ''
-                      example: cumque
+                      example: adipisci
                     correspondence_zip_code:
                       type: string
                       description: ''
@@ -645,11 +630,11 @@ paths:
                     correspondence_city:
                       type: string
                       description: ''
-                      example: exercitationem
+                      example: quo
                     correspondence_street:
                       type: string
                       description: ''
-                      example: voluptatem
+                      example: amet
                     correspondence_building_number:
                       type: string
                       description: ''
@@ -674,13 +659,15 @@ paths:
           type: integer
   '/api/v1/employees/{id}':
     delete:
-      summary: ''
-      operationId: deleteApiV1EmployeesId
+      summary: 'Destroy Employee'
+      operationId: destroyEmployee
       description: ''
       parameters: []
-      responses: {  }
+      responses:
+        204:
+          description: ''
       tags:
-        - Endpoints
+        - Employee
     parameters:
       -
         in: path
@@ -692,7 +679,10 @@ paths:
           type: integer
 tags:
   -
-    name: Endpoints
+    name: Auth
+    description: ''
+  -
+    name: Employee
     description: ''
 components:
   securitySchemes:

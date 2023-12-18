@@ -8,9 +8,20 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\ValidationException;
 
+/**
+ * @group Auth
+ */
 class ForgotPasswordController extends Controller
 {
     /**
+     * Forgot Password
+     *
+     * @bodyParam email string Example: test@example.com
+     *
+     * @response 200 {
+     *       "message": "We have emailed your password reset link."
+     *   }
+     *
      * @unauthenticated
      */
     public function __invoke(ForgotPasswordRequest $request): JsonResponse

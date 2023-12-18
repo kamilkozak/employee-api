@@ -1,6 +1,6 @@
 # Introduction
 
-Employee API doc
+Employee API docs
 
 <aside>
     <strong>Base URL</strong>: <code>http://employee-api.test</code>

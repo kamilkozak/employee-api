@@ -1,4 +1,4 @@
-# Laravel Booking API
+# Employee API
 
 ## Installation
 

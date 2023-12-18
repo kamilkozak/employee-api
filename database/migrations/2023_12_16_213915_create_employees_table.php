@@ -16,6 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('average_salary_last_year')->nullable();
             $table->string('position');
             $table->timestamps();
+
+            $table->unique('email');
         });
     }
 
